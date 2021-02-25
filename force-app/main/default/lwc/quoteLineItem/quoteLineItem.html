@@ -1,0 +1,46 @@
+<template>
+    <lightning-card title="Quote" icon-name="standard:quotes">
+        <lightning-spinner if:true={viewSpiner} alternative-text="Loading"
+            size="small"></lightning-spinner>
+        <lightning-layout>
+            <lightning-layout-item style="width: 50%; margin: 15px;">
+                <lightning-combobox
+                    name="Product"
+                    label="Product"
+                    value={ProductId}
+                    placeholder="Select"
+                    options={ProductOptions}
+                    onchange={handleProduct}></lightning-combobox>
+                <lightning-combobox if:true={viewComboelement}
+                    name="Element"
+                    label="Element"
+                    value={ElementId}
+                    placeholder="Select"
+                    options={ElementOptions}
+                    onchange={handleElement}></lightning-combobox>
+                <lightning-combobox if:true={viewComboSubelement}
+                    name="SubElement"
+                    label="SubElement"
+                    value={SubElementId}
+                    placeholder="Select"
+                    options={SubElementOptions}
+                    onchange={handleSubElement}></lightning-combobox>
+                <lightning-combobox if:true={viewCombobrand}
+                    name="Brand"
+                    label="Brand"
+                    value={BrandId}
+                    placeholder="Select"
+                    options={BrandOptions}
+                    onchange={handleBrand}></lightning-combobox>
+            </lightning-layout-item>
+            <lightning-layout-item style="width: 50%; margin: 15px;">
+                <div if:true={viewurlProd}>
+                    <h1>Product</h1>
+                    <img  src={urlProd} alt="">
+                </div>
+                
+
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>
