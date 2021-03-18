@@ -23,7 +23,9 @@ export default class QuoteLineItem extends LightningElement {
     @track viewComboSubelement = false;
     @track SubElementId;
     @track urlProd;
+    @track urlElem;
     @track viewurlProd = false;
+    @track viewurlElem = false;
 
     @wire(GetProduct2)
     record({
@@ -82,9 +84,17 @@ export default class QuoteLineItem extends LightningElement {
         return returnOptions;
     }
     handleElement(evt) {
+        this.viewurlElem = false;
         this.viewCombobrand = false;
         this.ElementId = evt.detail.value;
-        alert(this.ElementId);
+        this.ElementList.forEach((P) => {
+            if (P.Id === this.ElementId) {
+                this.urlElem = P.Image__c 
+                if (P.Image__c !== undefined) {
+                    this.viewurlElem = true;
+                }
+            }
+        })
         GetSubElement()
             .then(result => {
                 this.SubElementList = result;

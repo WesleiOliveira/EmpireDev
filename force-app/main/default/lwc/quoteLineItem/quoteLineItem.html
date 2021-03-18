@@ -6,7 +6,7 @@
             <lightning-layout-item style="width: 50%; margin: 15px;">
                 <lightning-combobox
                     name="Product"
-                    label="Product"
+                    label="Step 1 - Ambiente"
                     value={ProductId}
                     placeholder="Select"
                     options={ProductOptions}
@@ -36,10 +36,12 @@
             <lightning-layout-item style="width: 50%; margin: 15px;">
                 <div if:true={viewurlProd}>
                     <h1>Product</h1>
-                    <img  src={urlProd} alt="">
+                    <img  src={urlProd} alt="" width="150px">
                 </div>
-                
-
+                <div if:true={viewurlElem}>
+                    <h1>Element</h1>
+                    <img  src={urlElem} alt="" width="150px">
+                </div>
             </lightning-layout-item>
         </lightning-layout>
     </lightning-card>

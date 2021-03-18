@@ -5,7 +5,7 @@ public with sharing class QuoteLineItemController {
     }
     @AuraEnabled(cacheable=true)
     public static List<Element__c> GetElement(){
-        return  [SELECT Id, Name FROM Element__c];
+        return  [SELECT Id, Name, Image__c FROM Element__c];
     }
     @AuraEnabled(cacheable=true)
     public static List<SubElement__c> GetSubElement(){
