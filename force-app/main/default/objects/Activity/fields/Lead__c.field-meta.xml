@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Lead</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>The value does not exist or is not compatible with the filter criteria.
+You can only assign a lead that is owned by you.</errorMessage>
+        <filterItems>
+            <field>Lead.Owner:Queue.Id</field>
+            <operation>notEqual</operation>
+            <value>00G3h000000mgN9</value>
+        </filterItems>
+        <filterItems>
+            <field>Lead.OwnerId</field>
+            <operation>equals</operation>
+            <valueField>$User.Id</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Lead</referenceTo>
+    <relationshipLabel>Atividades</relationshipLabel>
+    <relationshipName>Atividades</relationshipName>
+    <required>false</required>
+    <type>Lookup</type>
+</CustomField>

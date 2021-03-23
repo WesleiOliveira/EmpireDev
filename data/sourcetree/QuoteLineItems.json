@@ -1,0 +1,11 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "QuoteLineItem",
+                "referenceId": "QuoteLineItemRef1"
+            },
+            "Discount": 0
+        }
+    ]
+}

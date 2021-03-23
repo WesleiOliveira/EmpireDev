@@ -1,0 +1,10 @@
+[
+    {
+        "sobject": "QuoteLineItem",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": [
+            "QuoteLineItems.json"
+        ]
+    }
+]
