@@ -1,46 +1,28 @@
 <template>
     <lightning-card title="Quote" icon-name="standard:quotes">
-        <lightning-spinner if:true={viewSpiner} alternative-text="Loading"
+        <lightning-spinner if:true={viewSpiner} alternative-text="Loading" 
             size="small"></lightning-spinner>
-        <lightning-layout>
-            <lightning-layout-item style="width: 50%; margin: 15px;">
+        <lightning-layout class="slds-align_absolute-middle">
+            <lightning-layout-item style="width: 20%; margin: 15px;">
                 <lightning-combobox
                     name="Product"
-                    label="Step 1 - Ambiente"
+                    label="Step 1 - Product"
                     value={ProductId}
                     placeholder="Select"
                     options={ProductOptions}
                     onchange={handleProduct}></lightning-combobox>
-                <lightning-combobox if:true={viewComboelement}
-                    name="Element"
-                    label="Element"
-                    value={ElementId}
-                    placeholder="Select"
-                    options={ElementOptions}
-                    onchange={handleElement}></lightning-combobox>
-                <lightning-combobox if:true={viewComboSubelement}
-                    name="SubElement"
-                    label="SubElement"
-                    value={SubElementId}
-                    placeholder="Select"
-                    options={SubElementOptions}
-                    onchange={handleSubElement}></lightning-combobox>
-                <lightning-combobox if:true={viewCombobrand}
-                    name="Brand"
-                    label="Brand"
-                    value={BrandId}
-                    placeholder="Select"
-                    options={BrandOptions}
-                    onchange={handleBrand}></lightning-combobox>
+            </lightning-layout-item>
+            <lightning-layout-item style="width: 15%; margin: 15px;">
+                <lightning-input type="number" name="Sales Price" label="Sales Price" value="123.45" formatter="currency"
+                    step="0.01"></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item style="width: 15%; margin: 15px;">
+                <lightning-input type="counter" name="Quantity" label="Quantity" placeholder="Enter the total quantity of product"></lightning-input>
             </lightning-layout-item>
             <lightning-layout-item style="width: 50%; margin: 15px;">
                 <div if:true={viewurlProd}>
                     <h1>Product</h1>
-                    <img  src={urlProd} alt="" width="150px">
-                </div>
-                <div if:true={viewurlElem}>
-                    <h1>Element</h1>
-                    <img  src={urlElem} alt="" width="150px">
+                    <img src={urlProd} alt="" width="150px">
                 </div>
             </lightning-layout-item>
         </lightning-layout>

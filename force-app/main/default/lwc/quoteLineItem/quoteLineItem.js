@@ -5,9 +5,6 @@ import {
     track
 } from "lwc";
 import GetProduct2 from "@salesforce/apex/QuoteLineItemController.GetProduct2";
-import GetElement from "@salesforce/apex/QuoteLineItemController.GetElement";
-import GetBrand from "@salesforce/apex/QuoteLineItemController.GetBrand";
-import GetSubElement from "@salesforce/apex/QuoteLineItemController.GetSubElement";
 
 export default class QuoteLineItem extends LightningElement {
     @api recordId;
@@ -65,81 +62,7 @@ export default class QuoteLineItem extends LightningElement {
                 }
             }
         })
-        GetElement({}).then((result) => {
-            this.ElementList = result;
-            this.viewComboelement = true;
-        });
+        alert(event.target.value)
     }
-    get ElementOptions() {
-        var returnOptions = [];
-        if (this.ElementList) {
-            this.ElementList.forEach((ele) => {
-                returnOptions.push({
-                    label: ele.Name,
-                    value: ele.Id
-                });
-            });
-        }
-        console.log(JSON.stringify(returnOptions));
-        return returnOptions;
-    }
-    handleElement(evt) {
-        this.viewurlElem = false;
-        this.viewCombobrand = false;
-        this.ElementId = evt.detail.value;
-        this.ElementList.forEach((P) => {
-            if (P.Id === this.ElementId) {
-                this.urlElem = P.Image__c 
-                if (P.Image__c !== undefined) {
-                    this.viewurlElem = true;
-                }
-            }
-        })
-        GetSubElement()
-            .then(result => {
-                this.SubElementList = result;
-                this.viewComboSubelement= true;
-            })
-    }
-    get SubElementOptions() {
-        var returnOptions = [];
-        if (this.SubElementList) {
-            this.SubElementList.forEach((ele) => {
-                returnOptions.push({
-                    label: ele.Name,
-                    value: ele.Id
-                });
-            });
-        }
-        console.log(JSON.stringify(returnOptions));
-        return returnOptions;
-    }
-    handleSubElement(evt) {
-        this.SubElementId = evt.detail.value;
-        alert(this.Brandid);
-        GetBrand({
-            recordId: this.ElementId
-        })
-        .then(result => {
-            this.BrandList = result;
-            this.viewCombobrand= true;
-        })
-    }
-    get BrandOptions() {
-        var returnOptions = [];
-        if (this.BrandList) {
-            this.BrandList.forEach((ele) => {
-                returnOptions.push({
-                    label: ele.Name,
-                    value: ele.Id
-                });
-            });
-        }
-        console.log(JSON.stringify(returnOptions));
-        return returnOptions;
-    }
-    handleBrand(evt) {
-        this.Brandid = evt.detail.value;
-        alert(this.Brandid);
-    }
+  
 }
